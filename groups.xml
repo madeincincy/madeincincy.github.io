@@ -1,0 +1,34 @@
+---
+---
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+	<channel>
+		<title>{{ site.name }} | Updated Groups</title>
+		<description>{{ site.description }}</description>
+		<link>{{ site.url }}</link>
+		<atom:link href="{{ site.url }}/groups.xml" rel="self" type="application/rss+xml" />
+        {% assign groups = site.groups | sort:date %}
+		{% for item in groups %}
+            <item>
+                <title><![CDATA[{{ item.title }}]]></title>
+                <description><![CDATA[{{ item.content | strip_html | truncatewords: 50 }}]]></description>
+                <content:encoded>
+                    <![CDATA[
+                        {% if item.image %}
+                          <img src="{{ item.image }}" title="{{ post.title }}" />
+                        {% endif %}
+                        {{ item.content | strip_html | truncatewords: 200 }}
+                    ]]>
+                </content:encoded>
+                {% if item.image %}
+                    {% if item.image contains '.png' %}
+                        <enclosure length="0" type="image/png" url="{{ item.image }}" />
+                    {% endif %}
+                {% endif %}
+                <pubDate>{{ item.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+                <link>{{ site.url }}{{ item.url }}</link>
+                <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
+            </item>
+		{% endfor %}
+	</channel>
+</rss>

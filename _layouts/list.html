@@ -26,9 +26,11 @@ layout: default
         <li>
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="{{item.url}}" title="{{item.title}}">
-                        <img class="media-object img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" />
-                    </a>
+                    {% if item.image %}
+                        <a href="{{item.url}}" title="{{item.title}}">
+                            <img class="media-object img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" />
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="col-sm-9">
                     <h4 class="media-heading">
@@ -36,7 +38,7 @@ layout: default
                         {{item.title}}
                         </a>
                     </h4>
-                    {{item.content | strip_html}}
+                    {{item.content | strip_html | truncatewords: 100 }}
                 </div>
             </div>
             <hr/>

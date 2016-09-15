@@ -1,0 +1,48 @@
+---
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for item in site.people %}
+    <url>
+        <loc>{{ site.url }}{{ item.url }}</loc>
+    	<changefreq>monthly</changefreq>
+    </url>
+    {% endfor %}
+    {% for item in site.events %}
+    <url>
+        <loc>{{ site.url }}{{ item.url }}</loc>
+    	<changefreq>monthly</changefreq>
+    </url>
+    {% endfor %}
+    {% for item in site.companies %}
+    <url>
+        <loc>{{ site.url }}{{ item.url }}</loc>
+    	<changefreq>monthly</changefreq>
+    </url>
+    {% endfor %}
+    {% for item in site.groups %}
+    <url>
+        <loc>{{ site.url }}{{ item.url }}</loc>
+    	<changefreq>monthly</changefreq>
+    </url>
+    {% endfor %}
+    {% for item in site.products %}
+    <url>
+        <loc>{{ site.url }}{{ item.url }}</loc>
+    	<changefreq>monthly</changefreq>
+    </url>
+    {% endfor %}
+    {% for page in site.pages %}
+    {% if page.layout != nil and page.layout != 'home' and page.layout != 'form' and page.exclude_sitemap != true %}
+    <url>
+        <loc>{{ site.url }}{{ page.url | remove: 'index.html' | replace: '.html', '/' | replace: ' ', '%20' }}</loc>
+    	<changefreq>daily</changefreq>
+    </url>
+    {% endif %}
+    {% endfor %}
+    <url>
+    	<loc>{{ site.url }}/</loc>
+      	<changefreq>always</changefreq>
+    </url>
+</urlset>

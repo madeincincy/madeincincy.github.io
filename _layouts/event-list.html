@@ -22,7 +22,8 @@ layout: default
     </div>
 </nav>
 <ul class="list-unstyled">
-    {% for item in site[page.list] | sort: startDate %}
+    {% assign events = site.events | sort:startDate %}
+    {% for item in events %}
         {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
         {% capture endDate %}{{ item.endDate | date: "%s" }}{% endcapture %}
         {%if endDate > today %}
@@ -42,7 +43,7 @@ layout: default
                         <strong>
                             <span class="glyphicon glyphicon-time"></span> Starts {{ item.startDate | date: "%b %d, %Y at %r" }}
                         </strong><br/>
-                        {{item.content | strip_html}}
+                        {{item.content | strip_html | truncatewords: 100 }}
                     </div>
                 </div>
                 <hr/>

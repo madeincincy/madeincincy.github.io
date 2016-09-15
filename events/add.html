@@ -8,7 +8,7 @@ title: Add an Event
     <li><a href="/events">Events</a></li>
   <li class="active">{{page.title}}</li>
 </ol>
-<form class="github-form" action="#" method="get">
+<form class="github-form" action="#" method="get" data-analytics-id="Add Event">
     <input name="path" type="hidden" value="_events/" />
     <fieldset>
         <legend>Add / Update an Event</legend>
@@ -72,6 +72,7 @@ title: Add an Event
     </fieldset>
     <fieldset>
         <div class="form-group">
+            <input type="hidden" name="created" />
             <button class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span> Submit Update</button>
             <a href="/events" class="btn btn-default">Cancel</a>
         </div>

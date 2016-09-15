@@ -14,6 +14,7 @@ layout: default
 </div>
 <div class="col-sm-8">
     <h2>{{page.title}}</h2>
+    {%include share.html %}
     <h4>Bio</h4>
     {{content}}
     {% include location.html %}
@@ -29,7 +30,7 @@ layout: default
             {% capture count %}{{capture}}.{% endcapture %}                               
             <div class="col-sm-3 col-xs-6 text-center">
                 <a href="{{product.url}}">
-                    <img class="img-responsive img-thumbnail" src="{{product.image}}" alt="{{product.title}}" />
+                    <img class="img-responsive img-thumbnail" src="{{product.image}}" alt="{{product.title}}" /><br/>
                     {{product.title}}
                 </a>
             </div>

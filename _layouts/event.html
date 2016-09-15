@@ -14,6 +14,7 @@ layout: default
 </div>
 <div class="col-sm-8">
     <h2>{{page.title}}</h2>
+    {%include share.html %}
     {% if page.group %}
         <h4>Sponsored by <a href="{{page.group}}">{% for group in site.groups %}{%if group.url == page.group %}{{group.title}}{%endif%}{% endfor %}</a></h4>
     {% endif %}

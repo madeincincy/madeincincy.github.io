@@ -15,6 +15,7 @@ layout: default
     </div>
     <div class="col-sm-8">
         <h2>{{page.title}}</h2>
+        {%include share.html %}
         {% if page.company %}
             <h4>By <a href="{{page.company}}">{% for company in site.companies %}{%if company.url == page.company%}{{company.title}}{%endif%}{% endfor %}</a></h4>
         {% endif %}

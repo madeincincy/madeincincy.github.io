@@ -8,7 +8,7 @@ title: Add a Company
     <li><a href="/companies">Companies</a></li>
   <li class="active">{{page.title}}</li>
 </ol>
-<form class="github-form" action="#" method="get">
+<form class="github-form" action="#" method="get" data-analytics-id="Add Company">
     <input name="path" type="hidden" value="_companies/" />
     <fieldset>
         <legend>Add / Update a Company</legend>
@@ -108,6 +108,7 @@ title: Add a Company
     </fieldset>
     <fieldset>
         <div class="form-group">
+            <input type="hidden" name="created" />
             <button class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span> Submit Update</button>
             <a href="/companies" class="btn btn-default">Cancel</a>
         </div>

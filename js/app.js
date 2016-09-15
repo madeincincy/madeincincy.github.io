@@ -1,4 +1,3 @@
-
 var App = {
     init: function($ctx){
         for (var key in App.fn) {
@@ -10,7 +9,6 @@ var App = {
     fn: {
         form: {
             init: function($ctx){
-                
                 $ctx.find('.delete-form').each(function(){
                     $form = $(this);
                     var repo = App.gh.getRepo();
@@ -31,6 +29,9 @@ var App = {
                             properties[$(field).attr('name')]=$(field).val();
                         });
                     });
+                    if(!(properties.created)){
+                        properties.creative = new Date().getTime();
+                    }
                     var page = jsyaml.safeDump(properties);
                     console.log("Delete request "+page);
                     var path = window.location.hash.substr(1);
@@ -201,4 +202,8 @@ var App = {
 };
 $(document).ready(function() {
     App.init($(document));
+	$('form').submit(function(){
+		var analyticsId = $(this).attr('data-analytics-id');
+		ga('send', 'event', 'Form', 'Submit', analyticsId);
+	});
 });

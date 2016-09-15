@@ -8,7 +8,7 @@ title: Add a Project or Product
     <li><a href="/products">Projects &amp; Products</a></li>
   <li class="active">{{page.title}}</li>
 </ol>
-<form class="github-form" action="#" method="get">
+<form class="github-form" action="#" method="get" data-analytics-id="Add Product">
     <input name="path" type="hidden" value="_groups/" />
     <fieldset>
         <legend>{{page.title}}</legend>
@@ -113,6 +113,7 @@ title: Add a Project or Product
     </fieldset>
     <fieldset>
         <div class="form-group">
+            <input type="hidden" name="created" />
             <button class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span> Submit Update</button>
             <a href="/products" class="btn btn-default">Cancel</a>
         </div>
