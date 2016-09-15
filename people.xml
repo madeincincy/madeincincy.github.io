@@ -3,12 +3,12 @@
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
-		<title>{{ site.name }} | Updated Groups</title>
+		<title>{{ site.name }} | New People</title>
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/groups.xml" rel="self" type="application/rss+xml" />
-        {% assign groups = site.groups | sort:created | reverse %}
-		{% for item in groups %}
+		<atom:link href="{{ site.url }}/people.xml" rel="self" type="application/rss+xml" />
+        {% assign people = site.people | sort:created | reverse %}
+		{% for item in people %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
                 <description><![CDATA[{{ item.content | strip_html | truncatewords: 50 }}]]></description>
