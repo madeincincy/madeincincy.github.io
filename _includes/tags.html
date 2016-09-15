@@ -1,0 +1,10 @@
+{% if page.tags %}
+    <h4>Tags</h4>
+    <ul class="list-unstyled list-inline">
+        {% for tag in page.tags %}
+            <li>
+                <a href="/search?q={{tag}}">{{tag}}</a>{% if forloop.last == false %},{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

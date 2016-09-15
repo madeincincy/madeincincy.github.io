@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/products">Products &amp; Products</a></li>
+    <li class="active">{{page.title}}</li>
+</ol>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="well">
+            <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <h2>{{page.title}}</h2>
+        {% if page.company %}
+            <h4>By <a href="{{page.company}}">{% for company in site.companies %}{%if company.url == page.company%}{{company.title}}{%endif%}{% endfor %}</a></h4>
+        {% endif %}
+        {{content}}
+        {% include links.html %}
+        {% include tags.html %}
+    </div>
+</div>
+{% include carousel.html %}
