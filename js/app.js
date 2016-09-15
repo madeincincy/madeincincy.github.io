@@ -21,7 +21,7 @@ var App = {
                     $form.children('fieldset').attr('disabled','disabled');
                     $form = $(this);
                     var properties = {
-                        date: new Date().getTime()
+                        date: new Date().toUTCString()
                     };
                     $form.find('fieldset > .form-group').each(function(idx, fieldGroup){
                         $fields = $($(fieldGroup).find('input'));
@@ -29,9 +29,6 @@ var App = {
                             properties[$(field).attr('name')]=$(field).val();
                         });
                     });
-                    if(!(properties.created)){
-                        properties.creative = new Date().getTime();
-                    }
                     var page = jsyaml.safeDump(properties);
                     console.log("Delete request "+page);
                     var path = window.location.hash.substr(1);
@@ -90,7 +87,7 @@ var App = {
                     $form.children('fieldset').attr('disabled','disabled');
                     $form = $(this);
                     var properties = {
-                        date: new Date().getTime()
+                        date: new Date().toUTCString()
                     };
                     $form.find('fieldset > .form-group').each(function(idx, fieldGroup){
                         if($(fieldGroup).hasClass('repeating-parent')){
@@ -112,6 +109,10 @@ var App = {
                             }
                         }
                     });
+                    
+                    if(properties.created == ''){
+                        properties.created = new Date().toUTCString();
+                    }
                     var page = "---\n"+jsyaml.safeDump(properties)+"\n---\n\n"+$form.find('textarea[name=content]').val();
                     console.log("Updated content "+page);
                     var path = null;
