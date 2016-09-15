@@ -12,26 +12,9 @@ url: http://www.madeincincy.com
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 permalink: pretty
 
-# How many articles do you wish to appear on the front page:
-paginate: 10
-
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.md]
 
-# Additional GEMs to install
-gems: [jekyll-paginate]
-
-permalink: /blog/:year/:month/:title/
-paginate_path: /blog/page:num/
-
-# Configure the Asset Bundler
-asset_bundler:
-  compress:
-    js: 'yui'
-    css: 'yui'
-  markup_templates:
-    js: "\t\t<script type=\"text/javascript\" src=\"{{url}}\"></script>\n"
-      
 collections:
   companies:
     output: true
