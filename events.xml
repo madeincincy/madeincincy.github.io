@@ -7,7 +7,7 @@
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-        {% assign events = site.events | sort:startDate %}
+        {% assign events = site.events | sort:startDate | reverse %}
 		{% for item in events %}
             {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
             {% capture endDate %}{{ item.endDate | date: "%s" }}{% endcapture %}
@@ -20,6 +20,7 @@
                             {% if item.image %}
                               <img src="{{ item.image }}" title="{{ post.title }}" />
                             {% endif %}
+                            Dates: {{ item.startDate | date: "%b %d, %Y at %r" }} - {{ item.endDate | date: "%b %d, %Y at %r" }}<br/>
                             {{ item.content | strip_html | truncatewords: 200 }}
                         ]]>
                     </content:encoded>
@@ -28,7 +29,7 @@
                             <enclosure length="0" type="image/png" url="{{ item.image }}" />
                         {% endif %}
                     {% endif %}
-                    <pubDate>{{ item.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+                    <pubDate>{{ item.created | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
                     <link>{{ site.url }}{{ item.url }}</link>
                     <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
                 </item>
