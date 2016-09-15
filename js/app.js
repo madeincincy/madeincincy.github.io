@@ -10,6 +10,51 @@ var App = {
     fn: {
         form: {
             init: function($ctx){
+                
+                $ctx.find('.delete-form').each(function(){
+                    $form = $(this);
+                    var repo = App.gh.getRepo();
+                    if(window.location.hash !== ""){
+                        var path = window.location.hash.substr(1);
+                        $form.find('input[name=path]').val(path);
+                    }
+                });
+                $ctx.find('.delete-form').submit(function(){
+                    $form.children('fieldset').attr('disabled','disabled');
+                    $form = $(this);
+                    var properties = {
+                        date: new Date().getTime()
+                    };
+                    $form.find('fieldset > .form-group').each(function(idx, fieldGroup){
+                        $fields = $($(fieldGroup).find('input'));
+                        $fields.each(function(idx, field){
+                            properties[$(field).attr('name')]=$(field).val();
+                        });
+                    });
+                    var page = jsyaml.safeDump(properties);
+                    console.log("Delete request "+page);
+                    var path = window.location.hash.substr(1);
+                    
+                    var issues = App.gh.getIssues();
+                    
+                    issues.createIssue({
+                        "title": "Delete Request for "+path+" by "+properties.author+" on "+new Date().toLocaleDateString(),
+                        "body": page,
+                        "assignee": "klcodanr",
+                        "labels": [
+                            "content"
+                        ]
+                    }, function(err, res){
+                        $form.children('fieldset').removeAttr('disabled');
+                        if(err){
+                            App.ui.alert("danger","Unable to submit deletion due to unexpected exception, please <a href='/contact'>Contact Us</a>");
+                            console.log(err);
+                        } else {
+                            App.ui.alert("success","Deletion submitted successfully. Changes should be reflected within 24-48 hours.");
+                        }
+                    });
+                    return false;
+                });
                 $ctx.find('.github-form').each(function(){
                     $form = $(this);
                     var repo = App.gh.getRepo();
@@ -128,10 +173,10 @@ var App = {
         }
     },
     gh: {
-        accessToken: 'c8de08405ce57c6f6fe7539955e81a766f1cfa80',
+        accessToken: 'ZTZiZWFiNmRlZTI4N2U0YzBkMGNiNjgzMGVlY2FjY2QzZGY1NmU1NQ==',
         getIssues: function(){
             var gh = new GitHub({
-                token: App.gh.accessToken
+                token: atob(App.gh.accessToken)
             });
             return gh.getIssues("madeincincy/madeincincy.github.io");
         },

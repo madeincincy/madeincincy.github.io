@@ -4,7 +4,7 @@ layout: default
 
 <ol class="breadcrumb">
     <li><a href="/">Home</a></li>
-    <li><a href="/groups">Groups</a></li>
+    <li><a href="/events">Events</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
 <div class="col-sm-4">
@@ -14,23 +14,17 @@ layout: default
 </div>
 <div class="col-sm-8">
     <h2>{{page.title}}</h2>
+    {% if page.group %}
+        <h4>Sponsored by <a href="{{page.group}}">{% for group in site.groups %}{%if group.url == page.group %}{{group.title}}{%endif%}{% endfor %}</a></h4>
+    {% endif %}
+    <br/><hr/><br/>
+    <h4>Date / Time</h4>
+    <span class="glyphicon glyphicon-time"></span> {{ page.startDate | date: "%b %d, %Y at %r" }} &mdash; {{ page.endDate | date: "%b %d, %Y at %r" }}
+    {% include location.html %}
+    
     <h4>Description</h4>
     {{content}}
     {% include links.html %}
-    <h4>Upcoming Events</h4>
-    <ul>
-        {% for event in site.events %}{% if event.group == page.url  %}
-            {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
-            {% capture endDate %}{{ event.endDate | date: "%s" }}{% endcapture %}
-            {%if endDate > today %}
-                <li>
-                    <a href="{{event.url}}">
-                        {{event.title}} &mdash; Starts {{ event.startDate | date: "%b %d, %Y at %r" }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endif %}{% endfor %}
-    </ul>
 </div>
 <br/>
 <a href="/groups/add#{{page.path}}" class="btn btn-success"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Edit</a> <a href="/groups/delete#{{page.path}}" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Delete</a>

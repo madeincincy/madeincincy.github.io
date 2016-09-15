@@ -3,26 +3,28 @@ layout: default
 ---
 <div class="row">
     <div class="col-sm-6">
+        <h2 class="text-uppercase">About Made in Cincy</h2>
         <div class="well">
             {{ content }}
         </div>
     </div>
     <div class="col-sm-6">
+        <h2 class="text-uppercase">Cincinnati is Home To</h2>
         <div class="list-group">
             <a href="/people" class="list-group-item">
-                People <span class="badge">{{ site.people | size }}</span>
+                <span class="glyphicon glyphicon-user"></span> People <span class="badge">{{ site.people | size }}</span>
             </a>
             <a href="/companies" class="list-group-item">
-                Companies <span class="badge">{{ site.companies | size }}</span>
+                <span class="glyphicon glyphicon-briefcase"></span> Companies <span class="badge">{{ site.companies | size }}</span>
             </a>
             <a href="/groups" class="list-group-item">
-                Groups <span class="badge">{{ site.groups | size }}</span>
+                <span class="glyphicon glyphicon-comment"></span> Groups <span class="badge">{{ site.groups | size }}</span>
             </a>
             <a href="/products" class="list-group-item">
-                Projects &amp; Products <span class="badge">{{ site.products | size }}</span>
+                <span class="glyphicon glyphicon-send"></span> Projects &amp; Products <span class="badge">{{ site.products | size }}</span>
             </a>
             <a href="/events" class="list-group-item">
-                Events <span class="badge">{{ site.events | size }}</span>
+                <span class="glyphicon glyphicon-calendar"></span> Events <span class="badge">{{ site.events | size }}</span>
             </a>
         </div>
     </div>

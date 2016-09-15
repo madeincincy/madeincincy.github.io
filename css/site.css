@@ -1,5 +1,34 @@
 body {
-    padding-top: 70px;
+    padding-top: 50px;
+    background-color: #fcfcfc;
+}
+
+.header-image {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url(/images/Cincinnati-Skyline.jpg) no-repeat center top fixed;
+    height:300px;
+}
+
+.header-image * {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #1a1a1a;
+    color: #fff;
+}
+
+.header-image h1 {
+    margin-top: 75px;
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.main {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-top:none;
+    border-bottom: none;
+    min-height: 800px;
 }
 
 .media-object {
@@ -13,4 +42,11 @@ body {
     max-height: 300px;
     display:block;
     margin:auto;
+}
+
+.page-footer {
+    background-color: rgba(81,81,81,1);
+    color: #fff;
+    text-shadow: 0 1px #1f1f1f;
+    padding: 40px 0;
 }

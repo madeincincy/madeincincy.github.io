@@ -1,0 +1,40 @@
+---
+layout: form
+title: Delete an Event
+---
+
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+    <li><a href="/events">Events</a></li>
+  <li class="active">{{page.title}}</li>
+</ol>
+<form class="delete-form" action="#" method="get">
+    <legend>{{page.title}}</legend>
+    <fieldset>
+        <div class="form-group">
+            <label for="reason">Path <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" required="required" name="path" readonly="readonly" />
+        </div>
+        <div class="form-group">
+            <label for="reason">Reason for Deletion <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" required="required" name="reason" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Your Information</legend>
+        <div class="form-group">
+            <label for="author">Your Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" required="required" name="author" />
+        </div>
+        <div class="form-group">
+            <label for="authorEmail">Your Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" required="required" name="authorEmail" />
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="form-group">
+            <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Submit Update</button>
+            <a href="/events" class="btn btn-default">Cancel</a>
+        </div>
+    </fieldset>
+</form>
