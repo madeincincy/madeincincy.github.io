@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            {{ content }}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="list-group">
+            <a href="/people" class="list-group-item">
+                People <span class="badge">{{ site.people | size }}</span>
+            </a>
+            <a href="/companies" class="list-group-item">
+                Companies <span class="badge">{{ site.companies | size }}</span>
+            </a>
+            <a href="/groups" class="list-group-item">
+                Groups <span class="badge">{{ site.groups | size }}</span>
+            </a>
+            <a href="/projects" class="list-group-item">
+                Projects <span class="badge">{{ site.projects | size }}</span>
+            </a>
+            <a href="/events" class="list-group-item">
+                Events <span class="badge">{{ site.events | size }}</span>
+            </a>
+        </div>
+    </div>
+</div>

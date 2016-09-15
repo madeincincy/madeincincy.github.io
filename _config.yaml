@@ -2,7 +2,7 @@
 name: Made in Cincy
 
 # Short description (goes below the title; it will also be used in the RSS feed)
-description: Made in Cincy: Cincinnati's Creator Directory
+description: 'Made in Cincy: Cincinnati''s Creator Directory'
 
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 url: http://www.madeincincy.com
@@ -17,3 +17,29 @@ paginate: 10
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.md]
+
+# Additional GEMs to install
+gems: [jekyll-paginate]
+
+permalink: /blog/:year/:month/:title/
+paginate_path: /blog/page:num/
+
+# Configure the Asset Bundler
+asset_bundler:
+  compress:
+    js: 'yui'
+    css: 'yui'
+  markup_templates:
+    js: "\t\t<script type=\"text/javascript\" src=\"{{url}}\"></script>\n"
+      
+collections:
+  companies:
+    output: true
+  events:
+    output: true
+  groups:
+    output: true
+  people:
+    output: true
+  projects:
+    output: true

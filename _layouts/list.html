@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">{{page.title}}</li>
+</ol>
+{{content}}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-text">
+                <span class="badge">{{ site[page.list] | size }}</span> {{page.title}}
+            </div>
+        </div>
+        <div class="pull-right">
+            <a href="{{page.addLink}}" class="btn btn-success navbar-btn">
+                Add {{page.title}}
+            </a>
+        </div>
+    </div>
+</nav>
+<ul class="list-unstyled">
+    {% for item in site[page.list] %}
+        <li>
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{item.url}}" title="{{item.title}}">
+                        <img class="media-object img-responsive img-thumbnail" src="{{item.thumbnail}}" alt="{{item.title}}" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a href="{{item.url}}" title="{{item.title}}">
+                        {{item.title}}
+                        </a>
+                    </h4>
+                    {{item.content | strip_html}}
+                </div>
+            </div>
+            <hr/>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/people">People</a></li>
+    <li class="active">{{page.title}}</li>
+</ol>
+<div class="col-sm-4">
+    <div class="well">
+        <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+    </div>
+</div>
+<div class="col-sm-8">
+    <h2>{{page.title}}</h2>
+    <h4>Bio</h4>
+    {{content}}
+    <h4>Links</h4>
+    <ul>
+        {% for link in page.links %}
+            <li>
+                <a href="{{link}}">{{link}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

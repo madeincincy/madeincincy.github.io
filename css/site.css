@@ -1,0 +1,8 @@
+body {
+    padding-top: 70px;
+}
+
+.media-object {
+    max-width:64px;
+    max-height: 64px;
+}
