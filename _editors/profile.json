@@ -9,15 +9,24 @@
          "required":true
       },
       {
+         "name":"location",
+         "label":"Location",
+         "type":"text"
+      },
+      {
          "name":"image",
          "label":"Image",
-         "type":"text",
-         "required":true
+         "type":"text"
       },
       {
          "name":"links",
          "type":"repeating",
          "label":"Links"
+      },
+      {
+         "name":"tags",
+         "type":"repeating",
+         "label":"Tags"
       },
       {
          "name":"projects",
@@ -27,17 +36,20 @@
       {
          "name":"author",
          "type":"text",
-         "label":"Author"
+         "label":"Author",
+         "required":true
       },
       {
          "name":"date",
          "type":"date",
-         "label":"Modified Date"
+         "label":"Modified Date",
+         "required":true
       },
       {
          "name":"created",
          "type":"date",
-         "label":"Created Date"
+         "label":"Created Date",
+         "required":true
       }
    ],
    "rte": {
