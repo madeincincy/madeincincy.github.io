@@ -83,7 +83,6 @@ var App = {
                             var parts = res.split('---');
                             $form.find('textarea[name=content]').data("wysihtml5").editor.setValue(parts[2]);
                             $form.find('input[name=path]').val(path);
-                            
                             var properties = jsyaml.safeLoad(parts[1]);
                             $form.find('.form-group').each(function(idx, fieldGroup){
                                 if($(fieldGroup).hasClass('repeating-parent')){
@@ -91,11 +90,11 @@ var App = {
                                     if(properties[key]){
                                         properties[key].forEach(function(item,idx){
                                             var $newItem = $(App.fn.repeating.repeatingAdd($(fieldGroup).find('.repeating-add')));
-                                            $newItem.find('input').val(item);
+                                            $newItem.find('input,select').val(item);
                                         });
                                     }
                                 } else {
-                                    $fields = $($(fieldGroup).find('input'));
+                                    $fields = $($(fieldGroup).find('input,select'));
                                     $fields.each(function(idx, field){
                                         $(field).val(properties[$(field).attr('name')]);
 
@@ -125,7 +124,7 @@ var App = {
                             if($(fieldGroup).find('textarea[name=content]').length > 0){
                                 // skip
                             } else {
-                                $fields = $($(fieldGroup).find('input'));
+                                $fields = $($(fieldGroup).find('input,select'));
                                 $fields.each(function(idx, field){
                                     properties[$(field).attr('name')]=$(field).val();
                                 });

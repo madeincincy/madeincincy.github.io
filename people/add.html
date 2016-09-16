@@ -46,17 +46,49 @@ title: Add a Person
                 </div>
             </div>
         </div>
-        <div class="form-group repeating-parent" data-name="project">
-            <datalist id="projects">
-                {% for project in site.projects %}
-                    <option value="{{project.url}}">{{project.title}}</option>
-                {% endfor %}
+        <div class="form-group repeating-parent" data-name="companies">
+            <datalist id="companies-list">
+                
             </datalist>
             <fieldset class="hide" disabled="disabled">
                 <div class="repeating-item repeating-template">
                     <div class="row">
                         <div class="col-xs-10">
-                            <input type="text" required="required" class="form-control" placeholder="Project / Product" list="projects" name="projects">
+                            <select required="required" class="form-control" placeholder="Company" name="companies">
+                                <option value="">--- Please Select ---</option>
+                                {% assign companies = (site.companies | sort: 'title') %}
+                                {% for company in companies %}
+                                    <option value="{{company.url}}">{{company.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-default repeating-remove">-</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <label for="companies">Companies</label>
+            <div class="repeating-container">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="#" class="btn btn-default repeating-add">+</a> 
+                </div>
+            </div>
+        </div>
+        <div class="form-group repeating-parent" data-name="projects">
+            <fieldset class="hide" disabled="disabled">
+                <div class="repeating-item repeating-template">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <select required="required" class="form-control" name="projects">
+                                <option value="">--- Please Select ---</option>
+                                {% assign projects = (site.projects | sort: 'title') %}
+                                {% for item in projects %}
+                                    <option value="{{item.url}}">{{item.title}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <div class="col-xs-2">
                             <button class="btn btn-default repeating-remove">-</button>
@@ -65,6 +97,34 @@ title: Add a Person
                 </div>
             </fieldset>
             <label for="projects">Projects &amp; Products</label>
+            <div class="repeating-container">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="#" class="btn btn-default repeating-add">+</a> 
+                </div>
+            </div>
+        </div>
+        <div class="form-group repeating-parent" data-name="groups">
+            <fieldset class="hide" disabled="disabled">
+                <div class="repeating-item repeating-template">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <select required="required" class="form-control" name="groups">
+                                <option value="">--- Please Select ---</option>
+                                {% assign groups = (site.groups | sort: 'title') %}
+                                {% for item in groups %}
+                                    <option value="{{item.url}}">{{item.title}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-default repeating-remove">-</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <label for="groups">Groups</label>
             <div class="repeating-container">
             </div>
             <div class="row">

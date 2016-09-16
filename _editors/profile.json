@@ -50,6 +50,12 @@
          "required":true
       },
       {
+         "name":"authorEmail",
+         "type":"email",
+         "label":"Author Email",
+         "required":true
+      },
+      {
          "name":"date",
          "type":"date",
          "label":"Modified Date",

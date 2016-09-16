@@ -20,7 +20,7 @@ layout: default
     {% include location.html %}
     {% include links.html %}
 </div>
-{% if page.projects %}
+{% if page.projects and page.projects.size > 0 %}
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Projects &amp; Products</h3>
@@ -31,7 +31,7 @@ layout: default
 </div>
 <br/>
 {% endif %}
-{% if page.companies %}
+{% if page.companies and page.companies.size > 0 %}
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Companies</h3>
@@ -42,7 +42,7 @@ layout: default
 </div>
 <br/>
 {% endif %}
-{% if page.groups %}
+{% if page.groups and page.groups.size > 0 %}
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Groups</h3>
