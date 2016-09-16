@@ -75,8 +75,11 @@ var App = {
                                         });
                                     }
                                 } else {
-                                    $field = $($(fieldGroup).find('input'));
-                                    $field.val(properties[$field.attr('name')]);
+                                    $fields = $($(fieldGroup).find('input'));
+                                    $fields.each(function(idx, field){
+                                        $(field).val(properties[$(field).attr('name')]);
+
+                                    });
                                 }
                             });
                         });

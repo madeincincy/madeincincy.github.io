@@ -1,0 +1,46 @@
+{
+   "title":"Default Page",
+   "description":"The following fields will be used to update the page metadata",
+   "fields":[
+      {
+         "name":"title",
+         "label":"Name",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"image",
+         "label":"Image",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"links",
+         "type":"repeating",
+         "label":"Links"
+      },
+      {
+         "name":"projects",
+         "type":"repeating",
+         "label":"Projects"
+      },
+      {
+         "name":"author",
+         "type":"text",
+         "label":"Author"
+      },
+      {
+         "name":"date",
+         "type":"date",
+         "label":"Modified Date"
+      },
+      {
+         "name":"created",
+         "type":"date",
+         "label":"Created Date"
+      }
+   ],
+   "rte": {
+      "document_base_url":"https://madeincincy.github.io/"
+   }
+}

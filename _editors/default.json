@@ -1,0 +1,25 @@
+{
+   "title":"Default Page",
+   "description":"The following fields will be used to update the page metadata",
+   "fields":[
+      {
+         "name":"title",
+         "label":"Title",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"tags",
+         "type":"repeating",
+         "label":"Keywords"
+      },
+      {
+         "name":"summary",
+         "type":"textarea",
+         "label":"Description"
+      }
+   ],
+   "rte": {
+      "document_base_url":"https://www.danklco.com/"
+   }
+}
