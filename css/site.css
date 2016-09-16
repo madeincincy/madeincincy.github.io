@@ -18,7 +18,6 @@ body {
     margin-top: 75px;
     text-align: center;
     margin-bottom: 0;
-    font-weight: 700;
 }
 
 .main {
@@ -29,11 +28,6 @@ body {
     border-top:none;
     border-bottom: none;
     min-height: 800px;
-}
-
-.media-object {
-    max-width:64px;
-    max-height: 64px;
 }
 
 .carousel img {

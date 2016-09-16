@@ -25,12 +25,12 @@ layout: default
         <h3 class="page-header">Projects &amp; Products</h3>
     </div>
     {% assign count='' %}
-    {% for product in site.products %}{% if product.company == page.url  %}
+    {% for project in site.projects %}{% if project.company == page.url  %}
         {% capture count %}{{capture}}.{% endcapture %}                               
         <div class="col-sm-3 col-xs-6 text-center">
-            <a href="{{product.url}}">
-                <img class="img-responsive img-thumbnail" src="{{product.image}}" alt="{{product.title}}" /><br/>
-                {{product.title}}
+            <a href="{{project.url}}">
+                <img class="img-responsive img-thumbnail" src="{{project.image}}" alt="{{project.title}}" /><br/>
+                {{project.title}}
             </a>
         </div>
     {% endif %}{% endfor %}

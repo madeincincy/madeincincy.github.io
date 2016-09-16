@@ -5,7 +5,7 @@ title: Add a Project or Product
 
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
-    <li><a href="/products">Projects &amp; Products</a></li>
+    <li><a href="/projects">Projects &amp; Products</a></li>
   <li class="active">{{page.title}}</li>
 </ol>
 <form class="github-form" action="#" method="get" data-analytics-id="Add Product">
@@ -31,7 +31,7 @@ title: Add a Project or Product
                 {% endfor %}
             </datalist>
             <label for="company">Company</label>
-            <input type="text" class="form-control" required="required" placeholder="Company" list="companies" name="company" />
+            <input type="text" class="form-control" placeholder="Company" list="companies" name="company" />
         </div>
         <div class="form-group repeating-parent" data-name="images">
             <fieldset class="hide" disabled="disabled">
@@ -116,7 +116,7 @@ title: Add a Project or Product
             <input type="hidden" name="created" />
             <input type="hidden" name="layout" value="product" />
             <button class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span> Submit Update</button>
-            <a href="/products" class="btn btn-default">Cancel</a>
+            <a href="/projects" class="btn btn-default">Cancel</a>
         </div>
     </fieldset>
 </form>

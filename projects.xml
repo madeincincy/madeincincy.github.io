@@ -7,15 +7,15 @@
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/products.xml" rel="self" type="application/rss+xml" />
-        {% assign products = site.products | sort:created | reverse %}
-		{% for item in products %}
+        {% assign projects = site.projects | sort:created | reverse %}
+		{% for item in projects %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
                 <description><![CDATA[{{ item.content | strip_html | truncatewords: 50 }}]]></description>
                 <content:encoded>
                     <![CDATA[
                         {% if item.image %}
-                          <img src="{{ item.image }}" title="{{ post.title }}" />
+                          <img src="{{ item.image }}" title="{{ item.title }}" />
                         {% endif %}
                         {{ item.content | strip_html | truncatewords: 200 }}
                     ]]>
