@@ -10,22 +10,56 @@ layout: default
     </div>
     <div class="col-sm-6">
         <h2 class="text-uppercase">Cincinnati is Home To</h2>
-        <div class="list-group">
-            <a href="/people" class="list-group-item">
-                <span class="glyphicon glyphicon-user"></span> People <span class="badge">{{ site.people | size }}</span>
-            </a>
-            <a href="/companies" class="list-group-item">
-                <span class="glyphicon glyphicon-briefcase"></span> Companies <span class="badge">{{ site.companies | size }}</span>
-            </a>
-            <a href="/groups" class="list-group-item">
-                <span class="glyphicon glyphicon-comment"></span> Groups <span class="badge">{{ site.groups | size }}</span>
-            </a>
-            <a href="/projects" class="list-group-item">
-                <span class="glyphicon glyphicon-send"></span> Projects &amp; Products <span class="badge">{{ site.projects | size }}</span>
-            </a>
-            <a href="/events" class="list-group-item">
-                <span class="glyphicon glyphicon-calendar"></span> Events <span class="badge">{{ site.events | size }}</span>
-            </a>
+        <div class="row">
+            <div class="col-sm-6 home-block">
+                <h3 class="text-center">
+                    <a href="/people">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <br/>
+                        <span>{{ site.people | size }}</span> People
+                    </a>
+                </h3>
+            </div>
+            <div class="col-sm-6 home-block">
+                <h3 class="text-center">
+                    <a href="/companies">
+                        <span class="glyphicon glyphicon-briefcase"></span>
+                        <br/>
+                        <span>{{ site.companies | size }}</span> Companies
+                    </a>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 home-block">
+                <h3 class="text-center">
+                    <a href="/groups">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <br/>
+                        <span>{{ site.groups | size }}</span> Groups
+                    </a>
+                </h3>
+            </div>
+            <div class="col-sm-6 home-block">
+                <h3 class="text-center">
+                    <a href="/projects">
+                        <span class="glyphicon glyphicon-send"></span>
+                        <br/>
+                        <span>{{ site.projects | size }}</span> Projects &amp; Products
+                    </a>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 home-block col-sm-offset-3">
+                <h3 class="text-center">
+                    <a href="/events">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <br/>
+                        <span>{{ site.events | size }}</span> Events
+                    </a>
+                </h3>
+            </div>
         </div>
     </div>
 </div>

@@ -20,6 +20,27 @@ body {
     margin-bottom: 0;
 }
 
+.home-block {
+    height: 140px;
+    background-color: rgba(81,81,81,1);
+    border: 10px solid white;
+    cursor: pointer;
+}
+
+.home-block:hover {
+    background-color: #222;
+}
+
+.home-block a {
+    color: #fff;
+    display:block;
+}
+
+.home-block a:hover, .home-block:hover a {
+    text-decoration:none;
+    color: #e3e3e3;
+}
+
 .main {
     padding-top: 20px;
     padding-bottom: 40px;

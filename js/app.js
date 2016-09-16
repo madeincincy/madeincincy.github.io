@@ -207,4 +207,7 @@ $(document).ready(function() {
 		var analyticsId = $(this).attr('data-analytics-id');
 		ga('send', 'event', 'Form', 'Submit', analyticsId);
 	});
+    $('.home-block').click(function(){
+        window.location = $(this).find('a').attr('href');
+    })
 });
