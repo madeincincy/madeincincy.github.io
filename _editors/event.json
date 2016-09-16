@@ -1,6 +1,6 @@
 {
-   "title":"Profile Page",
-   "description":"Updates a profile / person page, should be created in the _people folder.",
+   "title":"Group Page",
+   "description":"Updates a group page, should be created in the _groups folder.",
    "fields":[
       {
          "name":"title",
@@ -11,12 +11,23 @@
       {
          "name":"location",
          "label":"Location",
-         "type":"text"
+         "type":"text",
+         "required": true
       },
       {
          "name":"image",
          "label":"Image",
          "type":"text"
+      },
+      {
+         "name":"startDate",
+         "label":"Start Date",
+         "type":"date"
+      },
+      {
+         "name":"endDate",
+         "label":"End Date",
+         "type":"date"
       },
       {
          "name":"links",
@@ -27,21 +38,6 @@
          "name":"tags",
          "type":"repeating",
          "label":"Tags"
-      },
-      {
-         "name":"companies",
-         "type":"repeating",
-         "label":"Companies"
-      },
-      {
-         "name":"groups",
-         "type":"repeating",
-         "label":"Groups"
-      },
-      {
-         "name":"projects",
-         "type":"repeating",
-         "label":"Projects"
       },
       {
          "name":"author",

@@ -1,6 +1,6 @@
 {
-   "title":"Profile Page",
-   "description":"Updates a profile / person page, should be created in the _people folder.",
+   "title":"Project / Product Page",
+   "description":"Updates a Project / Product page, should be created in the _projects folder.",
    "fields":[
       {
          "name":"title",
@@ -9,13 +9,13 @@
          "required":true
       },
       {
-         "name":"location",
-         "label":"Location",
+         "name":"image",
+         "label":"Image",
          "type":"text"
       },
       {
-         "name":"image",
-         "label":"Image",
+         "name":"images",
+         "label":"Carousel Images",
          "type":"text"
       },
       {
@@ -29,19 +29,9 @@
          "label":"Tags"
       },
       {
-         "name":"companies",
-         "type":"repeating",
-         "label":"Companies"
-      },
-      {
-         "name":"groups",
-         "type":"repeating",
-         "label":"Groups"
-      },
-      {
-         "name":"projects",
-         "type":"repeating",
-         "label":"Projects"
+         "name":"company",
+         "type":"text",
+         "label":"Company"
       },
       {
          "name":"author",

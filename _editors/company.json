@@ -1,6 +1,6 @@
 {
-   "title":"Profile Page",
-   "description":"Updates a profile / person page, should be created in the _people folder.",
+   "title":"Company Page",
+   "description":"Updates a company page, should be created in the _companies folder.",
    "fields":[
       {
          "name":"title",
@@ -19,6 +19,11 @@
          "type":"text"
       },
       {
+         "name":"images",
+         "label":"Carousel Images",
+         "type":"text"
+      },
+      {
          "name":"links",
          "type":"repeating",
          "label":"Links"
@@ -27,21 +32,6 @@
          "name":"tags",
          "type":"repeating",
          "label":"Tags"
-      },
-      {
-         "name":"companies",
-         "type":"repeating",
-         "label":"Companies"
-      },
-      {
-         "name":"groups",
-         "type":"repeating",
-         "label":"Groups"
-      },
-      {
-         "name":"projects",
-         "type":"repeating",
-         "label":"Projects"
       },
       {
          "name":"author",
