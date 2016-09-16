@@ -19,6 +19,11 @@ layout: default
                 <span class="glyphicon glyphicon-plus-sign"></span> Add {{page.title}}
             </a>
         </div>
+        <form class="navbar-form navbar-left" data-toggle="filter" data-target=".list-unstyled li" action="#" method="get">
+            <div class="form-group">
+                <input type="text" name="term" class="form-control" placeholder="Filter" />
+            </div>
+        </form>
     </div>
 </nav>
 <ul class="list-unstyled">

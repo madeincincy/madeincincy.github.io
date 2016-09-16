@@ -25,18 +25,9 @@ layout: default
     <div class="col-lg-12">
         <h3 class="page-header">Projects &amp; Products</h3>
     </div>
-    {% assign count='' %}
-    {% for projectUrl in page.projects %}
-        {% for project in site.projects %}{% if project.url == projectUrl  %}
-            {% capture count %}{{capture}}.{% endcapture %}                               
-            <div class="col-sm-3 col-xs-6 text-center">
-                <a href="{{project.url}}">
-                    <img class="img-responsive img-thumbnail" src="{{project.image}}" alt="{{project.title}}" /><br/>
-                    {{project.title}}
-                </a>
-            </div>
-        {% endif %}{% endfor %}
-    {%endfor%}
+    {% assign items=page.projects %}
+    {% assign collection=site.projects %}
+    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}
@@ -45,18 +36,9 @@ layout: default
     <div class="col-lg-12">
         <h3 class="page-header">Companies</h3>
     </div>
-    {% assign count='' %}
-    {% for companyUrl in page.companies %}
-        {% for company in site.companies %}{% if company.url == companyUrl  %}
-            {% capture count %}{{capture}}.{% endcapture %}                               
-            <div class="col-sm-3 col-xs-6 text-center">
-                <a href="{{company.url}}">
-                    <img class="img-responsive img-thumbnail" src="{{company.image}}" alt="{{company.title}}" /><br/>
-                    {{company.title}}
-                </a>
-            </div>
-        {% endif %}{% endfor %}
-    {%endfor%}
+    {% assign items=page.companies %}
+    {% assign collection=site.companies %}
+    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}
@@ -65,18 +47,9 @@ layout: default
     <div class="col-lg-12">
         <h3 class="page-header">Groups</h3>
     </div>
-    {% assign count='' %}
-    {% for groupUrl in page.groups %}
-        {% for group in site.groups %}{% if group.url == groupUrl  %}
-            {% capture count %}{{capture}}.{% endcapture %}                               
-            <div class="col-sm-3 col-xs-6 text-center">
-                <a href="{{group.url}}">
-                    <img class="img-responsive img-thumbnail" src="{{group.image}}" alt="{{group.title}}" /><br/>
-                    {{group.title}}
-                </a>
-            </div>
-        {% endif %}{% endfor %}
-    {%endfor%}
+    {% assign items=page.groups %}
+    {% assign collection=site.groups %}
+    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}

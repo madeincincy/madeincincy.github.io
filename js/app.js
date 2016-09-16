@@ -1,3 +1,9 @@
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
 var App = {
     init: function($ctx){
         for (var key in App.fn) {
@@ -7,6 +13,20 @@ var App = {
         }
     },
     fn: {
+        filter: {
+            init: function($ctx){
+                $ctx.find('form[data-toggle=filter]').each(function(idx, filter){
+                    var $filter = $(filter);
+                    var target = $filter.attr('data-target');
+                    $filter.find('input[name=term]').keyup(function(){
+                        var term = $(this).val();
+                        $(target).hide();
+                        $(target+":contains("+term+")").show();
+                        $filter.parents('.navbar').find('.badge').text($(target+":visible").length);
+                    });
+                });
+            }
+        },
         form: {
             init: function($ctx){
                 $ctx.find('.delete-form').each(function(){
