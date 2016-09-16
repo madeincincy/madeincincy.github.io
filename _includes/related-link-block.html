@@ -1,0 +1,10 @@
+{% if item != null and item != '' %}
+    {% for it in collection %}{% if it[attr] == item  %}                        
+        <div class="col-sm-3 col-xs-6 text-center">
+            <a href="{{it.url}}">
+                <img class="img-responsive img-thumbnail" src="{{it.image}}" alt="{{it.title}}" /><br/>
+                {{it.title}}
+            </a>
+        </div>
+    {% endif %}{% endfor %}
+{% endif %}

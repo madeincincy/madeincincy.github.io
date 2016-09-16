@@ -1,4 +1,4 @@
-{% if page.links %}
+{% if page.links and page.links.size > 0 %}
     <h4>Links</h4>
     <ul>
         {% for link in page.links %}

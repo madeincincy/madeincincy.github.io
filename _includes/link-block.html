@@ -1,10 +1,12 @@
-{% for itemUrl in items %}
-    {% for item in collection %}{% if item.url == itemUrl  %}                        
-        <div class="col-sm-3 col-xs-6 text-center">
-            <a href="{{item.url}}">
-                <img class="img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" /><br/>
-                {{item.title}}
-            </a>
-        </div>
-    {% endif %}{% endfor %}
-{%endfor%}
+{% if items != null and items.size > 0 %}
+    {% for itemUrl in items %}
+        {% for item in collection %}{% if item.url == itemUrl  %}                        
+            <div class="col-sm-3 col-xs-6 text-center">
+                <a href="{{item.url}}">
+                    <img class="img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" /><br/>
+                    {{item.title}}
+                </a>
+            </div>
+        {% endif %}{% endfor %}
+    {%endfor%}
+{% endif %}

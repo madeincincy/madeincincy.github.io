@@ -1,4 +1,4 @@
-{% if page.location %}
+{% if page.location and page.location != '' %}
     <h4>Location</h4>
     <p>
         <a href="http://maps.google.com/?q={{page.location}}" target="_blank">
