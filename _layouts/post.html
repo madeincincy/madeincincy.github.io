@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<div class="row">
+	<section class="col-md-9 transparent-block-default">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">News &amp; Updates</a></li>
+            <li class="active">{{page.title}}</li>
+        </ol>
+		<article class="post" typeof="BlogPosting">
+			<header class="row">
+				<div class="col-md-2">
+					<img property="image" class="img-responsive img-rounded" src="{{ page.thumbnail }}" title="{{page.title}}"/>
+				</div>
+				<div class="col-md-10">
+					<h3 property="headline">{{ page.title }}</h3>
+					<em>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> By <span class="hide" property="publisher" typeOf="Organization"><span property="name">{{ site.name }}</span></span> <span class="author" property="author" typeOf="Person"><span property="name">{{ page.author }}</span></span>&nbsp;on&nbsp;<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime='{{page.date | date: "%Y-%m-%d"}}'><span class="hide" property="dateModified">{{page.date | date_to_xmlschema }}</span><span property="datePublished">{{page.date | date: "%B %d, %Y"}}</span></time>
+					</em>
+				</div>
+			</header>
+			<hr class="large" />
+			<div class="content">
+				{{ content }}
+			</div>
+			<hr class="large"/>
+            <h4>Tags</h4>
+            <div class="tags" property="keywords">
+                {% for tag in page.tags %}
+                    <a href="/search?q={{tag | urlencode}}">{{ tag }}</a>&nbsp;&nbsp;
+                {% endfor %}
+            </div>
+			<hr class="large"/>
+			<div class="comments">
+				{% include comments.html %}
+			</div>
+            <hr class="large"/>
+            <div class="row">
+                <div class="col-xs-6">
+                    {% if page.previous.url %}
+                        {% capture url %}{{ page.previous.url }}{% endcapture %}
+                        {% capture target %}{% endcapture %}
+                        <a class="btn btn-inverse" href="{{url}}" {{target}} title="{{page.previous.title}}">&laquo; Previous Post</a>
+                    {% endif %}
+                </div>
+                <div class="col-xs-6">
+                    {% if page.next.url %}
+                        {% capture url %}{{ page.next.url }}{% endcapture %}
+                        {% capture target %}{% endcapture %}
+                        <a class="btn btn-inverse pull-right" href="{{url}}" {{target}} title="{{page.next.title}}">Next Post &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
+		</article>
+	</section>
+    <aside class="col-md-3">
+        <a class="btn btn-primary btn-lg" href="/blog.xml">Follow Our Posts</a>
+        <hr/>
+        <h3>More Posts</h3>
+        <div class="tabs">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#recentPosts" data-toggle="tab"><span class="glyphicon glyphicon-star"></span>Recent</a></li>
+                <li><a href="#relatedPosts" data-toggle="tab">Related</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" id="relatedPosts">
+                    <ul class="simple-post-list list-unstyled">
+                        {% assign written = '' %}
+                        {% for post in site.posts %}
+                            {% if post.url != page.url and written.size < 5 %}
+                                {% capture tags %}{{page.tags | join: ','}}{% endcapture %}
+                                {% assign matches = '' %}
+                                {% for tag in post.tags %}
+                                    {% if tags contains tag %}
+                                        {% capture matches %}{{ matches }}.{% endcapture %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if matches.size > 0 %}
+                                    {% capture written %}{{ written }}.{% endcapture %}
+                                    <li>
+                                        {% include post-small.html %}
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="tab-pane active" id="recentPosts">
+                    <ul class="simple-post-list list-unstyled">
+                        {% for post in site.posts limit:5 %}
+                            <li>
+                                {% include post-small.html %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+

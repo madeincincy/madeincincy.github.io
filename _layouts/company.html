@@ -1,5 +1,6 @@
 ---
 layout: default
+base: /companies/
 ---
 
 <ol class="breadcrumb">
@@ -32,5 +33,5 @@ layout: default
 <br/>
 {% include carousel.html %}
 <br/>
-<a href="/companies/add#{{page.path}}" class="btn btn-success"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Edit</a> <a href="/companies/delete#{{page.path}}" class="btn btn-danger"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i> Delete</a>
-<br/><br/>
+{% assign base="/companies/" %}
+{% include edit.html %}

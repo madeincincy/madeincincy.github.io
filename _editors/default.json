@@ -14,12 +14,12 @@
          "label":"Keywords"
       },
       {
-         "name":"summary",
+         "name":"description",
          "type":"textarea",
          "label":"Description"
       }
    ],
    "rte": {
-      "document_base_url":"https://www.danklco.com/"
+      "document_base_url":"https://madeincincy.github.io/"
    }
 }

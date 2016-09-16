@@ -1,0 +1,54 @@
+<article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting"> 
+    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}" content="{{url}}" />
+    <meta itemprop="url" content="{{site.url}}{{ post.thumbnail }}">
+    <meta itemprop="headline" content="{{post.title}}">
+    {% if post.thumbnail %}
+        {% assign thumb = post.thumbnail %}
+    {% else %}
+        {% capture thumb %}//placehold.it/300x300?text={{post.title}}{% endcapture %}
+    {% endif %}
+    <div class="col-sm-3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="width" content="300">
+        <img src="{{thumb}}" class="img-responsive center-block img-thumbnail" alt="{{post.title}}" />
+    </div>
+    <div class="col-sm-9">
+         <h3 itemprop="headline">
+            <a href="{{post.url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
+                {{post.title}}
+            </a>
+        </h3>
+        <div class="content" property="description">
+            {% if post.summary %}
+                {{ post.summary }}
+            {% else %}
+                {{ post.content | strip_html | truncatewords:25}}
+            {% endif %}&nbsp;<a href="{{post.url}}" {% if post.original %}target="_blank"{% endif %} title="{{post.title}}" itemprop="url">
+                Read&nbsp;More&nbsp;&raquo;
+            </a>
+        </div>
+        <p class="text-muted">
+            <small>
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em>
+                <br/>
+                <span><i class="glyphicon glyphicon-tag"></i>
+                    {% for postTag in post.tags limit:4 %}
+                        <a href="/search/?q={{postTag | UrlEncode}}">{{postTag}}</a>{% if forloop.last == false %},{% endif %}&nbsp;
+                    {% endfor %}
+                </span>
+            </small>
+        </p>
+    </div>
+    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <meta itemprop="name" content="Dan Klco">
+    </div>
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="https://www.danklco.com/images/me.jpg" />
+            <meta itemprop="width" content="249">
+            <meta itemprop="height" content="249">
+        </div>
+        <meta itemprop="name" content="Dan Klco">
+    </div>
+    <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}"/>
+    <meta itemprop="dateModified" content="{{ post.date | date_to_xmlschema }}"/>
+</article>

@@ -15,6 +15,11 @@
          "required": true
       },
       {
+         "name":"group",
+         "label":"Sponsor",
+         "type":"text"
+      },
+      {
          "name":"image",
          "label":"Image",
          "type":"text"

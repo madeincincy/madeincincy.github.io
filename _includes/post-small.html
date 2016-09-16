@@ -1,0 +1,14 @@
+{% capture url %}{{ post.url }}{% endcapture %}
+{% capture target %}{% endcapture %}
+{% if post.original %}
+    {% unless post.original contains 'labs.6dglobal.com' or post.original contains 'labs.sixdimensions.com' %}
+        {% capture url %}{{ post.original }}{% endcapture %}
+        {% capture target %}target="_blank"{% endcapture %}
+    {% else %}
+        {% capture url %}{{ post.url }}{% endcapture %}
+    {% endunless %}
+{% endif %}
+<a href="{{ url }}" {{target}}>{{post.title}}</a><br/>
+<small class="text-muted">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em><br/>
+</small><br/>

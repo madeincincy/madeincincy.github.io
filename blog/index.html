@@ -1,0 +1,82 @@
+---
+layout: default
+title: News and Updates
+---
+
+<div class="row">
+    <div class="col-md-9 col-sm-8">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">News &amp; Updates</li>
+        </ol>
+        <h2>Recent Posts</h2>
+        {% for post in paginator.posts %}
+            {% include post.html %}
+        {% endfor %}
+        {% if paginator.total_pages != 1 %}
+            <ul class="hidden-xs hidden-sm pagination pagination-lg pull-right">
+                {% if paginator.previous_page %}
+                    {% if paginator.previous_page == 1 %}
+                        <li><a href="/" class="previous">Previous</a></li>
+                    {% else %}
+                        <li><a href="/">First Page</a></li>
+                        <li><a href="/page{{paginator.previous_page}}/" class="previous">Previous</a></li>
+                    {% endif %}
+                {% endif %}
+                {% for p in (1..paginator.previous_page) limit:3%}
+                {% if p == 1 %}
+                    <li><a href="/">{{p}}</a></li>
+                {% else %}
+                    <li><a href="/page{{p}}/">{{p}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if paginator.previous_page > 3 %}
+                    <li><a class="paginator-inactive">...</a></li>
+                    <li><a href="/page{{paginator.previous_page}}/">{{paginator.previous_page}}</a></li>
+                {% endif %}
+                    <li><a class="paginator-inactive">{{paginator.page}}</a></li>
+                {% if paginator.next_page %}
+                    {% for p in (paginator.next_page..paginator.total_pages) limit:3%}
+                        <li><a href="/page{{p}}/">{{p}}</a></li>
+                    {% endfor %}
+                {% endif %}
+                <li><a href="/page{{paginator.next_page}}/" class="next">Next</a></li>
+                <li><a href="/page{{paginator.total_pages}}/">Last Page</a></li>
+            </ul>
+        {% endif %}
+        {% if paginator.total_pages != 1 %}
+            <ul class="hidden-md hidden-lg pagination pagination-lg">
+                {% if paginator.previous_page %}
+                    {% if paginator.previous_page == 1 %}
+                        <li><a href="/" class="previous">&lt;</a></li>
+                    {% else %}
+                        <li><a href="/page{{paginator.previous_page}}/" class="previous">&lt;</a></li>
+                    {% endif %}
+                {% endif %}
+                <li><a class="paginator-inactive">{{paginator.page}} of {{paginator.total_pages}}</a></li>
+                {% if paginator.next_page %}
+                    <li><a href="/page{{paginator.next_page}}/" class="next">&gt;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+    <aside class="col-md-3 col-sm-4">
+        <a class="btn btn-primary btn-lg" href="/blog.xml">Follow Our Posts</a>
+        <hr/>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Recent Posts</h4>
+            </div>
+            <div class="panel-body">
+                <ul class="simple-post-list list-unstyled">
+                    {% for post in site.posts limit:5 %}
+                        <li>
+                            {% include post-small.html %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </aside>
+</div>
+<script id="dsq-count-scr" src="//essomenic.disqus.com/count.js" async></script>

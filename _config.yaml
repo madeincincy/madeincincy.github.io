@@ -15,6 +15,48 @@ permalink: pretty
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.md]
 
+# Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
+permalink: /blog/:year/:month/:title/
+paginate_path: /blog/page:num/
+
+# Control the number of post per page
+paginate: 10
+
+# Additional GEMs to install
+gems: [jekyll-paginate]
+
+defaults:
+  -
+    scope:
+      type: "company"
+    values:
+      baseName: "Companies"
+      base: "/companies/"
+  -
+    scope:
+      type: "event"
+    values:
+      baseName: "Events"
+      base: "/events/"
+  -
+    scope:
+      type: "group"
+    values:
+      baseName: "Groups"
+      base: "/groups/"
+  -
+    scope:
+      type: "person"
+    values:
+      baseName: "People"
+      base: "/people/"
+  -
+    scope:
+      type: "project"
+    values:
+      baseName: "Projects &amp; Products"
+      base: "/projects/"
+
 collections:
   companies:
     output: true

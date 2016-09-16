@@ -66,6 +66,13 @@ body {
     padding: 40px 0;
 }
 
+.tab-content {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
 ul.share-buttons{
   list-style: none;
   padding: 0;

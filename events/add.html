@@ -21,6 +21,16 @@ title: Add an Event
             <input type="text" class="form-control" required="required" name="location" />
         </div>
         <div class="form-group">
+            <label for="location">Sponsor</label>
+            <select class="form-control" name="group">
+                <option value="">--- Please Select ---</option>
+                {% assign groups = (site.groups | sort: 'title') %}
+                {% for item in groups %}
+                    <option value="{{item.url}}">{{item.title}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
             <label for="startDate">Start Date <span class="text-danger">*</span></label>
             <input type="datetime-local" class="form-control" required="required" name="startDate" />
         </div>
