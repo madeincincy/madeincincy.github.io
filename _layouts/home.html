@@ -10,13 +10,19 @@ layout: default
         <br/>
         <br/>
         <h2>News &amp; Updates</h2>
+        <hr/>
         <div class="news">
-            <section itemscope itemtype="http://schema.org/Blog" class="row">
-                {% for post in site.posts | limit: 3 %}
-                    {% include post.html %}
+            <section itemscope itemtype="http://schema.org/Blog">
+                {% assign posts = (site.posts | limit: 3) %}
+                {% for post in posts %}
+                    <div class="row">
+                        {% include post.html %}
+                    </div>
+                    <hr/>
                 {% endfor %}
             </section>
         </div>
+        <br/>
         <a href="/blog" class="btn btn-primary"><span class="glyphicon glyphicon-bullhorn"></span> More News &amp; Updates</a>
     </div>
     <div class="col-sm-6">
