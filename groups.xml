@@ -8,7 +8,7 @@
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/groups.xml" rel="self" type="application/rss+xml" />
         {% assign groups = site.groups | sort:created | reverse %}
-		{% for item in groups %}
+		{% for item in groups limit: 10 %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
                 <description><![CDATA[{{ item.content | strip_html | truncatewords: 50 }}]]></description>

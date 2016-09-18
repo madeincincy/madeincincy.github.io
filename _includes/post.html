@@ -28,7 +28,7 @@
         </div>
         <p class="text-muted">
             <small>
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</span>
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{post.author}} <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <span itemprop="datePublished">{{post.date | date: "%b %d %Y"}}</span>
                 <br/>
                 <span><i class="glyphicon glyphicon-tag"></i>
                     {% for postTag in post.tags limit:4 %}
