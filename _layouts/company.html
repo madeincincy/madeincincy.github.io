@@ -8,18 +8,20 @@ base: /companies/
     <li><a href="/companies">Companies</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
-<div class="col-sm-4">
-    <div class="well">
-        <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+<div class="row">
+    <div class="col-sm-4">
+        <div class="well">
+            <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+        </div>
     </div>
-</div>
-<div class="col-sm-8">
-    <h2>{{page.title}}</h2>
-    {%include share.html %}
-    {{content}}
-    {% include location.html %}
-    {% include links.html %}
-    {% include tags.html %}
+    <div class="col-sm-8">
+        <h2>{{page.title}}</h2>
+        {%include share.html %}
+        {{content}}
+        {% include location.html %}
+        {% include links.html %}
+        {% include tags.html %}
+    </div>
 </div>
 <div class="row">
     <div class="col-lg-12">

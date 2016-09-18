@@ -8,27 +8,29 @@ base: /people/
     <li><a href="/people">People</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
-<div class="col-sm-4">
-    <div class="well">
-        <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+<div class="row">
+    <div class="col-sm-4">
+        <div class="well">
+            <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+        </div>
     </div>
-</div>
-<div class="col-sm-8">
-    <h2>{{page.title}}</h2>
-    {%include share.html %}
-    <h4>Bio</h4>
-    {{content}}
-    {% include location.html %}
-    {% include links.html %}
+    <div class="col-sm-8">
+        <h2>{{page.title}}</h2>
+        {%include share.html %}
+        <h4>Bio</h4>
+        {{content}}
+        {% include location.html %}
+        {% include links.html %}
+    </div>
 </div>
 {% if page.projects and page.projects.size > 0 %}
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Projects &amp; Products</h3>
+        {% assign items=page.projects %}
+        {% assign collection=site.projects %}
+        {% include link-block.html %}
     </div>
-    {% assign items=page.projects %}
-    {% assign collection=site.projects %}
-    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}
@@ -36,10 +38,10 @@ base: /people/
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Companies</h3>
+        {% assign items=page.companies %}
+        {% assign collection=site.companies %}
+        {% include link-block.html %}
     </div>
-    {% assign items=page.companies %}
-    {% assign collection=site.companies %}
-    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}
@@ -47,10 +49,10 @@ base: /people/
 <div class="row">
     <div class="col-lg-12">
         <h3 class="page-header">Groups</h3>
+        {% assign items=page.groups %}
+        {% assign collection=site.groups %}
+        {% include link-block.html %}
     </div>
-    {% assign items=page.groups %}
-    {% assign collection=site.groups %}
-    {% include link-block.html %}
 </div>
 <br/>
 {% endif %}

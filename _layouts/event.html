@@ -8,25 +8,27 @@ base: /events/
     <li><a href="/events">Events</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
-<div class="col-sm-4">
-    <div class="well">
-        <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+<div class="row">
+    <div class="col-sm-4">
+        <div class="well">
+            <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+        </div>
     </div>
-</div>
-<div class="col-sm-8">
-    <h2>{{page.title}}</h2>
-    {%include share.html %}
-    {% if page.group %}
-        <h4>Sponsored by <a href="{{page.group}}">{% for group in site.groups %}{%if group.url == page.group %}{{group.title}}{%endif%}{% endfor %}</a></h4>
-    {% endif %}
-    <br/><hr/><br/>
-    <h4>Date / Time</h4>
-    <span class="glyphicon glyphicon-time"></span> {{ page.startDate | date: "%b %d, %Y at %r" }} &mdash; {{ page.endDate | date: "%b %d, %Y at %r" }}
-    {% include location.html %}
-    
-    <h4>Description</h4>
-    {{content}}
-    {% include links.html %}
+    <div class="col-sm-8">
+        <h2>{{page.title}}</h2>
+        {%include share.html %}
+        {% if page.group %}
+            <h4>Sponsored by <a href="{{page.group}}">{% for group in site.groups %}{%if group.url == page.group %}{{group.title}}{%endif%}{% endfor %}</a></h4>
+        {% endif %}
+        <br/><hr/><br/>
+        <h4>Date / Time</h4>
+        <span class="glyphicon glyphicon-time"></span> {{ page.startDate | date: "%b %d, %Y at %r" }} &mdash; {{ page.endDate | date: "%b %d, %Y at %r" }}
+        {% include location.html %}
+
+        <h4>Description</h4>
+        {{content}}
+        {% include links.html %}
+    </div>
 </div>
 <br/>
 {% assign base="/events/" %}

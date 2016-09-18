@@ -8,35 +8,50 @@ base: /groups/
     <li><a href="/groups">Groups</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
-<div class="col-sm-4">
-    <div class="well">
-        {% if page.image %}
-            <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
-        {% endif %}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="well">
+            {% if page.image %}
+                <img class="img-responsive img-thumbnail center-block" src="{{page.image}}" alt="{{page.title}}" />
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <h2>{{page.title}}</h2>
+        {%include share.html %}
+        <h4>Description</h4>
+        {{content}}
+        {% include links.html %}
     </div>
 </div>
-<div class="col-sm-8">
-    <h2>{{page.title}}</h2>
-    {%include share.html %}
-    <h4>Description</h4>
-    {{content}}
-    {% include links.html %}
-    <h4>Upcoming Events</h4>
-    <ul>
-        {% for event in site.events %}{% if event.group == page.url  %}
-            {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
-            {% capture endDate %}{{ event.endDate | date: "%s" }}{% endcapture %}
-            {%if endDate > today %}
-                <li>
-                    <a href="{{event.url}}">
-                        {{event.title}} &mdash; Starts {{ event.startDate | date: "%b %d, %Y at %r" }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endif %}{% endfor %}
-    </ul>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Members</h4>
+        {% assign item=page.url %}
+        {% assign collection=site.people %}
+        {% assign attr='groups' %}
+        {% include related-link-block.html %}
+    </div>
 </div>
-<br/>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Upcoming Events</h4>
+        <ul>
+            {% assign events = (site.events | where: event.group, page.url) %}
+            {% for event in events %}
+                {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
+                {% capture endDate %}{{ event.endDate | date: "%s" }}{% endcapture %}
+                {%if endDate > today %}
+                    <li>
+                        <a href="{{event.url}}">
+                            {{event.title}} &mdash; Starts {{ event.startDate | date: "%b %d, %Y at %r" }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% assign base="/groups/" %}
 {% include edit.html %}
 {% include comments.html %}
