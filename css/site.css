@@ -7,6 +7,15 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+dt {
+    font-weight: 900;
+    padding-top:10px;   
+}
+
+dd {
+    padding-left:10px;
+}
+
 header h1 {
     font-size: 4em;
 }
