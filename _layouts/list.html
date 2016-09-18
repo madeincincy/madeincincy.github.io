@@ -38,11 +38,11 @@ layout: default
                     {% endif %}
                 </div>
                 <div class="col-sm-9">
-                    <h4 class="media-heading">
+                    <h3>
                         <a href="{{item.url}}" title="{{item.title}}">
                         {{item.title}}
                         </a>
-                    </h4>
+                    </h3>
                     {{item.content | strip_html | truncatewords: 75 }}
                 </div>
             </div>
