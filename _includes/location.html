@@ -2,7 +2,7 @@
     <h4>Location</h4>
     <p>
         <span class="glyphicon glyphicon-map-marker"></span>
-        <a href="http://maps.google.com/?q={{page.location}}" target="_blank">
+        <a href="http://maps.google.com/?q={{page.location | urlencode | replace: ' ', '%20' }}" target="_blank">
             {{page.location}}
         </a>
     </p>

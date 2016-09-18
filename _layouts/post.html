@@ -29,7 +29,7 @@ layout: default
             <h4>Tags</h4>
             <div class="tags" property="keywords">
                 {% for tag in page.tags %}
-                    <a href="/search?q={{tag | urlencode}}">{{ tag }}</a>&nbsp;&nbsp;
+                    <a href="/search?q={{tag | urlencode | replace: ' ', '%20' }}">{{ tag }}</a>&nbsp;&nbsp;
                 {% endfor %}
             </div>
 			<div class="comments">

@@ -32,7 +32,7 @@
                 <br/>
                 <span><i class="glyphicon glyphicon-tag"></i>
                     {% for postTag in post.tags limit:4 %}
-                        <a href="/search/?q={{postTag | UrlEncode}}">{{postTag}}</a>{% if forloop.last == false %},{% endif %}&nbsp;
+                        <a href="/search/?q={{postTag | urlencode | replace: ' ' : '%20' }}">{{postTag}}</a>{% if forloop.last == false %},{% endif %}&nbsp;
                     {% endfor %}
                 </span>
             </small>
