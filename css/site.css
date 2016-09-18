@@ -1,6 +1,20 @@
+
+@import 'https://fonts.googleapis.com/css?family=Poiret+One|Raleway';
+
 body {
     padding-top: 50px;
     background-color: #fcfcfc;
+    font-family: 'Raleway', sans-serif;
+}
+
+header h1 {
+    font-size: 4em;
+}
+
+header h1, header h1 small, .navbar-brand {
+    font-family: 'Poiret One', sans-serif;
+    font-weight:900;
+    letter-spacing: 1px;
 }
 
 .header-image {

@@ -34,9 +34,13 @@
             <div class="container">
                 <div class="row">
                         <div class="col-md-12">
-                        <h1 style="font-size: 65px;">
-                            {{ page.title}}<br/>
-                            <small>{{site.name}}</small>
+                        <h1>
+                            {% if page.layout == 'home' %}
+                                {{ site.name }}
+                            {% else %}
+                                {{ page.title}}<br/>
+                                <small>{{site.name}}</small>
+                            {% endif %}
                         </h1>
                     </div>
                 </div>
