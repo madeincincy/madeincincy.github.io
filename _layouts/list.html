@@ -27,7 +27,8 @@ layout: default
     </div>
 </nav>
 <ul class="list-unstyled">
-    {% for item in site[page.list] %}
+    {% assign collection = site[page.list] | sort: 'title' %}
+    {% for item in collection %}
         <li>
             <div class="row">
                 <div class="col-sm-3">
