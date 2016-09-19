@@ -25,6 +25,9 @@ paginate: 10
 # Additional GEMs to install
 gems: [jekyll-paginate]
 
+# Set the timezone so the update appears correctly
+timezone: America/New_York
+
 defaults:
   -
     scope:
