@@ -16,6 +16,32 @@ dd {
     padding-left:10px;
 }
 
+.droptarget {
+    min-height: 100px;
+    border: 2px dashed #337ab7;
+    color: #337ab7;
+    padding: 40px;
+}
+
+.droptarget:after {
+    content: 'Drop Content Here';
+}
+
+.droptarget.hover {
+    border: 4px dashed #23527c;
+    color: #23527c;
+    font-weight:bolder;
+}
+
+.droptarget.loading {
+    border: 2px solid #3c763d;
+    color: #3c763d;
+}
+
+.droptarget.loading:after {
+    content: 'Loading...';
+}
+
 header h1 {
     font-size: 4em;
 }

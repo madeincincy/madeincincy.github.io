@@ -9,7 +9,7 @@ title: Add a Person
   <li class="active">{{page.title}}</li>
 </ol>
 <form class="github-form" action="#" method="get" data-analytics-id="Add Person">
-    <input name="path" type="hidden" value="_groups/" />
+    <input name="path" type="hidden" value="_people/" />
     <fieldset>
         <legend>Add / Update a Person</legend>
         <div class="form-group">
@@ -18,7 +18,15 @@ title: Add a Person
         </div>
         <div class="form-group">
             <label for="image">Image <span class="text-danger">*</span></label>
-            <input type="url" class="form-control" required="required" placeholder="http://" name="image" />
+            <div class="row upload-container">
+                <div class="col-xs-6">
+                    <div class="droptarget"></div>
+                </div>
+                <div class="col-xs-6 upload-res">
+                    <img src="http://placehold.it/350x150?text=Upload%20Image" class="img-responsive" data-key="image" />
+                    <input type="hidden" required="required" name="image" />
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="content">Bio</label>

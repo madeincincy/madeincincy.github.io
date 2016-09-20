@@ -91,13 +91,17 @@ var App = {
                                         properties[key].forEach(function(item,idx){
                                             var $newItem = $(App.fn.repeating.repeatingAdd($(fieldGroup).find('.repeating-add')));
                                             $newItem.find('input,select').val(item);
+                                            $newItem.find('img').attr('src',item);
                                         });
                                     }
                                 } else {
                                     $fields = $($(fieldGroup).find('input,select'));
                                     $fields.each(function(idx, field){
                                         $(field).val(properties[$(field).attr('name')]);
-
+                                    });
+                                    $images = $($(fieldGroup).find('img'));
+                                    $images.each(function(idx, img){
+                                        $(img).attr('src',properties[$(img).attr('data-key')]);
                                     });
                                 }
                             });
@@ -115,7 +119,7 @@ var App = {
                         if($(fieldGroup).hasClass('repeating-parent')){
                             var key = $(fieldGroup).attr('data-name');
                             var values = [];
-                            $fields = $($(fieldGroup).find('.repeating-container input'));
+                            $fields = $($(fieldGroup).find('.repeating-container input,.repeating-container select'));
                             $fields.each(function(idx, field){
                                 values.push($(field).val());
                             });
@@ -164,6 +168,67 @@ var App = {
                     });
                     return false;
                 });
+            }
+        },
+        imgurUpload: {
+            init: function($ctx){
+                var  acceptedTypes = {
+                  'image/png': true,
+                  'image/jpeg': true,
+                  'image/gif': true
+                }
+                $ctx.find('.droptarget').each(function(idx,target){
+                    var $container = $(this).closest('.upload-container');
+                    var $target = $(target);
+                    $target.bind('dragover',function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $target.addClass('hover');
+                    }).bind('dragleave',function(e){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        $target.removeClass('hover').removeClass('hover');
+                    });
+                    target.ondrop = function (e) {
+                        $target.addClass('loading');
+                        e.preventDefault();
+                        if(e.dataTransfer.files.length != 0){
+                            var file = e.dataTransfer.files[0];
+                            if(acceptedTypes[file.type] === true){
+                                var formData = new FormData();
+                                formData.append("image", file);
+                                $.ajax({
+                                    url: "https://api.imgur.com/3/image",
+                                    type: "POST",
+                                    datatype: "json",
+                                    headers: {
+                                        "Authorization": "Client-ID 7ea0510aabb4b40"
+                                    },
+                                    data: formData,
+                                    success: function(response) {
+                                        $container.find('input').val(response.data.link);
+                                        var reader = new FileReader();
+                                        reader.onload = function (event) {
+                                            $target.removeClass('loading');
+                                            $container.find('img').attr('src',event.target.result);
+                                        };
+                                        reader.readAsDataURL(file);
+                                        var photo_hash = response.data.deletehash;
+                                    },
+                                    cache: false,
+                                    contentType: false,
+                                    processData: false
+                                });
+                            } else {
+                                $target.removeClass('loading');
+                                App.ui.alert('danger','Invalid file type for file: '+file.name);
+                            }
+                        } else {
+                            $target.removeClass('loading');
+                            App.ui.alert('danger','Please specify an image file');
+                        }
+                    };
+                });      
             }
         },
         repeating: {
