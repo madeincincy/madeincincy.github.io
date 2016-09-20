@@ -24,7 +24,7 @@ dd {
 }
 
 .droptarget:after {
-    content: 'Drop Content Here';
+    content: 'Drop Image Here to Upload';
 }
 
 .droptarget.hover {
