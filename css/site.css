@@ -90,6 +90,11 @@ header h1, header h1 small, .navbar-brand {
     color: #e3e3e3;
 }
 
+.list .img-thumbnail {
+    max-width: 220px;
+    max-height: 220px;
+}
+
 .main {
     padding-top: 20px;
     padding-bottom: 40px;
