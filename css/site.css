@@ -1,6 +1,14 @@
 
 @import 'https://fonts.googleapis.com/css?family=Poiret+One|Raleway';
 
+// specific breakpoints
+@media only screen and (min-width : 1200px) {
+    .list .img-thumbnail {
+        max-width: 220px;
+        max-height: 220px;
+    }
+}
+
 body {
     padding-top: 50px;
     background-color: #fcfcfc;
@@ -88,11 +96,6 @@ header h1, header h1 small, .navbar-brand {
 .home-block a:hover, .home-block:hover a {
     text-decoration:none;
     color: #e3e3e3;
-}
-
-.list .img-thumbnail {
-    max-width: 220px;
-    max-height: 220px;
 }
 
 .main {
