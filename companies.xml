@@ -7,7 +7,7 @@
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/companies.xml" rel="self" type="application/rss+xml" />
-        {% assign companies = site.companies | sort:created | reverse %}
+        {% assign companies = site.companies | sort: 'created' | reverse %}
 		{% for item in companies %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
@@ -25,7 +25,7 @@
                         <enclosure length="0" type="image/png" url="{{ item.image }}" />
                     {% endif %}
                 {% endif %}
-                <pubDate>{{ item.date | date: site.rss_time_format }}</pubDate>
+                <pubDate>{{ item.created | date: site.rss_time_format }}</pubDate>
                 <link>{{ site.url }}{{ item.url }}</link>
                 <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
             </item>
