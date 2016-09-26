@@ -35,6 +35,12 @@
          "type":"date"
       },
       {
+         "name":"displayTime",
+         "label":"Display Time?",
+         "type":"checkbox",
+         "default": true
+      },
+      {
          "name":"links",
          "type":"repeating",
          "label":"Links"

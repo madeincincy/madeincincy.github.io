@@ -28,6 +28,11 @@ gems: [jekyll-paginate]
 # Set the timezone so the update appears correctly
 timezone: America/New_York
 
+# Define the date formats used on the site
+time_format: '%b %d, %Y at %I:%M %p'
+date_format: '%b %d, %Y'
+rss_time_format: '%a, %d %b %Y %H:%M:%S %z'
+
 defaults:
   -
     scope:

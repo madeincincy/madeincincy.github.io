@@ -20,7 +20,7 @@
                             {% if item.image %}
                               <img src="{{ item.image }}" title="{{ item.title }}" />
                             {% endif %}
-                            Dates: {{ item.startDate | date: "%b %d, %Y at %r" }} - {{ item.endDate | date: "%b %d, %Y at %r" }}<br/>
+                            Dates: {{ item.startDate | date: site.time_format }} - {{ item.endDate | date: site.time_format }}<br/>
                             {{ item.content | strip_html | truncatewords: 200 }}
                         ]]>
                     </content:encoded>
@@ -29,7 +29,7 @@
                             <enclosure length="0" type="image/png" url="{{ item.image }}" />
                         {% endif %}
                     {% endif %}
-                    <pubDate>{{ item.created | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+                    <pubDate>{{ item.created | date: site.rss_time_format }}</pubDate>
                     <link>{{ site.url }}{{ item.url }}</link>
                     <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
                 </item>

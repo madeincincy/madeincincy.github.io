@@ -22,7 +22,12 @@ base: /events/
         {% endif %}
         <br/><hr/><br/>
         <h4>Date / Time</h4>
-        <span class="glyphicon glyphicon-time"></span> {{ page.startDate | date: "%b %d, %Y at %r" }} &mdash; {{ page.endDate | date: "%b %d, %Y at %r" }}
+        <span class="glyphicon glyphicon-time"></span> 
+        {% if page.displayTime %}
+            {{ page.startDate | date: site.time_format }} &mdash; {{ page.endDate | date: site.time_format }}
+        {% else %}
+            {{ page.startDate | date: site.date_format }} &mdash; {{ page.endDate | date: site.date_format }}
+        {% endif %}
         {% include location.html %}
 
         <h4>Description</h4>

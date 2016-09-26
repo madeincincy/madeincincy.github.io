@@ -44,7 +44,7 @@ base: /groups/
                 {%if endDate > today %}
                     <li>
                         <a href="{{event.url}}">
-                            {{event.title}} &mdash; Starts {{ event.startDate | date: "%b %d, %Y at %r" }}
+                            {{event.title}} &mdash; Starts {{ event.startDate | date: site.time_format }}
                         </a>
                     </li>
                 {% endif %}

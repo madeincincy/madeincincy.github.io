@@ -22,7 +22,7 @@
                 {% else %}
                     <enclosure length="0" type="image/jpeg" url="{{ site.url }}{{ post.thumbnail }}" />
                 {% endif %}
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+				<pubDate>{{ post.date | date: site.rss_time_format }}</pubDate>
 				<link>{% if post.original %}{{ post.original }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</link>
 				<guid isPermaLink="true">{% if post.original %}{{ post.original }}{% else %}{{ site.url }}{{ post.url }}{% endif %}</guid>
 			</item>

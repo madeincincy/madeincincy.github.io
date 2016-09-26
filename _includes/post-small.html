@@ -1,4 +1,4 @@
 <a href="{{ post.url }}" {{target}}>{{post.title}}</a><br/>
 <small class="text-muted">
-    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: "%B %d %Y"}}</em><br/>
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <em itemprop="datePublished">{{post.date | date: site.date_format }}</em><br/>
 </small><br/>
