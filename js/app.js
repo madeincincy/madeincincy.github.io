@@ -113,7 +113,7 @@ var App = {
                     $form.children('fieldset').attr('disabled','disabled');
                     $form = $(this);
                     var properties = {
-                        date: new Date().toUTCString()
+                        date: new Date()
                     };
                     $form.find('fieldset > .form-group').each(function(idx, fieldGroup){
                         if($(fieldGroup).hasClass('repeating-parent')){
@@ -137,7 +137,9 @@ var App = {
                     });
                     
                     if(properties.created == ''){
-                        properties.created = new Date().toUTCString();
+                        properties.created = new Date();
+                    } else {
+                        properties.created = new Date(Date.parse(properties.created));
                     }
                     var page = "---\n"+jsyaml.safeDump(properties)+"\n---\n\n"+$form.find('textarea[name=content]').val();
                     console.log("Updated content "+page);
