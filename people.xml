@@ -7,7 +7,7 @@
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/people.xml" rel="self" type="application/rss+xml" />
-        {% assign people = site.people | sort:created | reverse %}
+        {% assign people = site.people | sort: 'created' | reverse %}
 		{% for item in people limit: 10 %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
@@ -23,6 +23,9 @@
                 {% if item.image %}
                     {% if item.image contains '.png' %}
                         <enclosure length="0" type="image/png" url="{{ item.image }}" />
+                    {% endif %}
+                    {% if item.image contains '.jpg' or item.image contains '.jpeg' %}
+                        <enclosure length="0" type="image/jpg" url="{{ item.image }}" />
                     {% endif %}
                 {% endif %}
                 <pubDate>{{ item.date | date: site.rss_time_format }}</pubDate>

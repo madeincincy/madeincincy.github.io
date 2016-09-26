@@ -24,6 +24,9 @@
                     {% if item.image contains '.png' %}
                         <enclosure length="0" type="image/png" url="{{ item.image }}" />
                     {% endif %}
+                    {% if item.image contains '.jpg' or item.image contains '.jpeg' %}
+                        <enclosure length="0" type="image/jpg" url="{{ item.image }}" />
+                    {% endif %}
                 {% endif %}
                 <pubDate>{{ item.created | date: site.rss_time_format }}</pubDate>
                 <link>{{ site.url }}{{ item.url }}</link>
