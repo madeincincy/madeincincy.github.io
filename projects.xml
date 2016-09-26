@@ -7,7 +7,7 @@
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/products.xml" rel="self" type="application/rss+xml" />
-        {% assign projects = site.projects | sort:created | reverse %}
+        {% assign projects = site.projects | sort: 'created' | reverse %}
 		{% for item in projects limit: 10 %}
             <item>
                 <title><![CDATA[{{ item.title }}]]></title>
