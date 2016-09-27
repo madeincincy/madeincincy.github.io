@@ -26,10 +26,10 @@
                     </content:encoded>
                     {% if item.image %}
                         {% if item.image contains '.png' %}
-                            <enclosure length="0" type="image/png" url="{{ item.image }}" />
+                            <enclosure length="0" type="image/png" url="{{ item.image | xml_escape }}" />
                         {% endif %}
                         {% if item.image contains '.jpg' or item.image contains '.jpeg' %}
-                            <enclosure length="0" type="image/jpg" url="{{ item.image }}" />
+                            <enclosure length="0" type="image/jpg" url="{{ item.image | xml_escape }}" />
                         {% endif %}
                     {% endif %}
                     <pubDate>{{ item.created | date: site.rss_time_format }}</pubDate>

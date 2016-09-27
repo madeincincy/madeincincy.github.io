@@ -27,7 +27,7 @@ layout: default
     </div>
 </nav>
 <ul class="list-unstyled list">
-    {% assign events = site.events | sort:startDate %}
+    {% assign events = site.events | sort:startDate | reverse %}
     {% for item in events %}
         {% capture today %}{{ "now" | date: "%s" }}{% endcapture %}
         {% capture endDate %}{{ item.endDate | date: "%s" }}{% endcapture %}
