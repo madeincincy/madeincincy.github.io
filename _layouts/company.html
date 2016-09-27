@@ -6,6 +6,8 @@ base: /companies/
 <ol class="breadcrumb">
     <li><a href="/">Home</a></li>
     <li><a href="/companies/">Companies</a></li>
+    {% assign industry_page = site.pages | where: "url", page.industry %}
+    <li><a href="{{page.industry}}">{{industry_page[0].title}}</a></li>
     <li class="active">{{page.title}}</li>
 </ol>
 <div class="row">
