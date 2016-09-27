@@ -4,7 +4,7 @@
         <li><span class="glyphicon glyphicon-tags"></span></li>
         {% for tag in page.tags %}
             <li>
-                <a href="/search/??q={{tag | urlencode | replace: ' ', '%20' }}">{{tag}}</a>{% if forloop.last == false %},{% endif %}
+                <a href="/search/?q={{tag | urlencode | replace: ' ', '%20' }}">{{tag}}</a>{% if forloop.last == false %},{% endif %}
             </li>
         {% endfor %}
     </ul>
