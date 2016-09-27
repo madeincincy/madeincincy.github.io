@@ -34,8 +34,29 @@ layout: default
         <h3>Recently Created Companies</h3>
         <ul class="list-unstyled">
             {% assign companies = site.companies | sort: 'created' | reverse %}
-            {% for item in companies limit: 5 %}
-               {% include item.html %}
+            {% for item in companies limit: 3 %}
+                <li>
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-offset-2">
+                            {% if item.image %}
+                                <a href="{{item.url}}" title="{{item.title}}">
+                                    <img class="center-block img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" />
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3>
+                                <a href="{{item.url}}" title="{{item.title}}">
+                                {{item.title}}
+                                </a>
+                            </h3>
+                            {{item.content | strip_html | truncatewords: 25 }}
+                        </div>
+                    </div>
+                    <hr/>
+                </li>
             {% endfor %}
         </ul>
     </div>
