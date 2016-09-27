@@ -108,6 +108,9 @@ var App = {
                         });
                         $form.children('fieldset').removeAttr('disabled');
                     }
+                    if(App.fn.getParameterByName('industry') != null){
+                        $form.find('select[name=industry]').val(App.fn.getParameterByName('industry'));
+                    }
                 });
                 $ctx.find('.github-form').submit(function(){
                     $form.children('fieldset').attr('disabled','disabled');
@@ -171,6 +174,15 @@ var App = {
                     return false;
                 });
             }
+        },
+        getParameterByName: function(name) {
+            var url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         },
         imgurUpload: {
             init: function($ctx){

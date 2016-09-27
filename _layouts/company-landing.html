@@ -13,18 +13,22 @@ layout: default
         <div class="row">
             {% assign industries = (site.pages | where: "layout", "company-list") %}
             {% for industry in industries %}
-                <div class="col-sm-4 home-block">
-                    <h3 class="text-center">
-                        <a href="{{ industry.url }}" title="{{ industry.title }} Companies in Cincy">
-                            <span class="{{ industry.icon }}" aria-hidden="true"></span>
-                            <br />
-                            {% assign industry_companies = (site.companies | where: "industry", industry.url) %}
-                            <span>{{industry_companies.size}}</span> {{ industry.title }}
-                        </a>
-                    </h3>
-                </div>
+                {% assign industry_companies = (site.companies | where: "industry", industry.url) %}
+                {% if industry_companies.size > 0 %}
+                    <div class="col-sm-4 home-block">
+                        <h3 class="text-center">
+                            <a href="{{ industry.url }}" title="{{ industry.title }} Companies in Cincy">
+                                <span class="{{ industry.icon }}" aria-hidden="true"></span>
+                                <br />
+
+                                <span>{{industry_companies.size}}</span> {{ industry.title }}
+                            </a>
+                        </h3>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
+        <a href="/companies/all/">View All</a>
     </div>
     <div class="col-sm-4">
         <h3>Recently Created Companies</h3>
