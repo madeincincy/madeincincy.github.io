@@ -9,6 +9,11 @@
          "required":true
       },
       {
+         "name":"industry",
+         "label":"Industry",
+         "type":"path"
+      },
+      {
          "name":"location",
          "label":"Location",
          "type":"text"
@@ -36,20 +41,17 @@
       {
          "name":"author",
          "type":"text",
-         "label":"Author",
-         "required":true
+         "label":"Author"
       },
       {
          "name":"authorEmail",
          "type":"text",
-         "label":"Author Email",
-         "required":true
+         "label":"Author Email"
       },
       {
          "name":"date",
          "type":"date",
-         "label":"Modified Date",
-         "required":true
+         "label":"Modified Date"
       },
       {
          "name":"created",

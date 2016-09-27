@@ -4,6 +4,7 @@ layout: default
 
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
+  <li><a href="/companies/">Companies</a></li>
   <li class="active">{{page.title}}</li>
 </ol>
 {{content}}
@@ -11,12 +12,12 @@ layout: default
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text">
-                <span class="badge">{{ site[page.list] | size }}</span> {{page.title}}
+                <span class="badge">{{ site[page.list] | size }}</span> {{page.title}} Companies
             </div>
         </div>
         <div class="pull-right">
-            <a href="{{page.addLink}}" class="btn btn-success navbar-btn">
-                <span class="glyphicon glyphicon-plus-sign"></span> Add {{page.title}}
+            <a href="/companies/add/?industry={{ page.url | urlencode }}" class="btn btn-success navbar-btn">
+                <span class="glyphicon glyphicon-plus-sign"></span> Add {{page.title}} Company
             </a>
         </div>
         <form class="navbar-form navbar-left" data-toggle="filter" data-target=".list-unstyled li" action="#" method="get">
@@ -27,8 +28,8 @@ layout: default
     </div>
 </nav>
 <ul class="list-unstyled list">
-    {% assign collection = site[page.list] | sort: 'title' %}
+    {% assign collection = site.companies | where: "industry", page.url | sort: 'title' %}
     {% for item in collection %}
-        {% include item.html %}
+       {% include item.html %}
     {% endfor %}
 </ul>

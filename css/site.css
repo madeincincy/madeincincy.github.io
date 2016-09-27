@@ -78,7 +78,7 @@ header h1, header h1 small, .navbar-brand {
 }
 
 .home-block {
-    height: 140px;
+    height: 160px;
     background-color: rgba(81,81,81,1);
     border: 10px solid white;
     cursor: pointer;

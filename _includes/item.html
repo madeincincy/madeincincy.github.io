@@ -1,0 +1,20 @@
+ <li>
+    <div class="row">
+        <div class="col-sm-3">
+            {% if item.image %}
+                <a href="{{item.url}}" title="{{item.title}}">
+                    <img class="center-block img-responsive img-thumbnail" src="{{item.image}}" alt="{{item.title}}" />
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-sm-9">
+            <h3>
+                <a href="{{item.url}}" title="{{item.title}}">
+                {{item.title}}
+                </a>
+            </h3>
+            {{item.content | strip_html | truncatewords: 75 }}
+        </div>
+    </div>
+    <hr/>
+</li>
