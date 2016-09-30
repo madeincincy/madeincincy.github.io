@@ -2,19 +2,19 @@
     <li {% if page.url contains '/people/' %}class="active"{% endif %}>
         <a href="/people/">People</a>
     </li>
-    <li>
+    <li {% if page.url contains '/companies/' %}class="active"{% endif %}>
         <a href="/companies/">Companies</a>
     </li>
-    <li>
+    <li {% if page.url contains '/companies/' %}class="active"{% endif %}>
         <a href="/groups/">Groups</a>
     </li>
-    <li>
+    <li {% if page.url contains '/companies/' %}class="active"{% endif %}>
         <a href="/projects/">Projects &amp; Products</a>
     </li>
-    <li>
+    <li {% if page.url contains '/events/' %}class="active"{% endif %}>
         <a href="/events/">Events</a>
     </li>
-    <li>
+    <li {% if page.url contains '/contact/' %}class="active"{% endif %}>
         <a href="/contact/">Contact</a>
     </li>
 </ul>
