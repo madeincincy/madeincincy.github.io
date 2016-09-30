@@ -24,15 +24,11 @@ base: /groups/
         {% include links.html %}
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <h4>Members</h4>
-        {% assign item=page.url %}
-        {% assign collection=site.people %}
-        {% assign attr='groups' %}
-        {% include related-link-block.html %}
-    </div>
-</div>
+{% assign header='Members' %}
+{% assign item=page.url %}
+{% assign collection=site.people %}
+{% assign attr='groups' %}
+{% include related-link-block.html %}
 <div class="row">
     <div class="col-md-12">
         <h4>Upcoming Events</h4>
