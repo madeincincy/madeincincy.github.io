@@ -33,7 +33,7 @@ layout: default
         </a>
     </div>
     <div class="col-sm-4">
-        <h3>Recently Created Companies</h3>
+        <h3>Recently Added Companies</h3>
         <ul class="list-unstyled">
             {% assign companies = site.companies | sort: 'created' | reverse %}
             {% for item in companies limit: 3 %}
