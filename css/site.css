@@ -93,6 +93,10 @@ header h1, header h1 small, .navbar-brand {
     display:block;
 }
 
+.home-block h3 {
+    font-size: 18px
+}
+
 .img-thumbnail:hover{
     border: 1px solid #9d9d9d;
 }
